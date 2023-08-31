@@ -95,8 +95,6 @@ def trainAndTest(time,trainItem):
     falseDf = df[df['label'] == False]
     false_sn = falseDf['dimm_sn'].drop_duplicates().tolist()
 
-
-
     false_sn_train = random.sample(false_sn, int(len(false_sn) *0.6))
 
 

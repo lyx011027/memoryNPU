@@ -6,6 +6,10 @@ DATA_SOURCE_PATH = "/home/hw-admin/yixuan/data"
 SPLIT_DATA_PATH = os.path.join("split")
 # 存放生成数据集的路径
 DATA_SET_PATH = os.path.join("data_set")
+# 存放测试模型的路径
+TEST_MODEL_PATH = os.path.join("model_test")
+# 存放测试模型R-P曲线图的文件夹
+TEST_PIC_PATH = os.path.join("pic_test")
 # 存放训练得到的数据集
 MODEL_PATH =  os.path.join("model")
 # 存放R-P曲线图的文件夹
