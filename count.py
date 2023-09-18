@@ -38,7 +38,7 @@ def countPredictableUEDIMMMerge(q, leadTimeList):
                 print("lead time = {}, predictable UE DIMM = {}".format(leadTimeList[i], predictableDIMM[i]))
             return
         UE += 1
-        for i in len(predictableDIMM):
+        for i in range(len(predictableDIMM)):
             if predictable[i]:
                 predictableDIMM[i] += 1
 
@@ -146,7 +146,7 @@ def countIntervalProcess(q, subDfList):
             continue
         firstUER = UERDf.loc[0,'record_datetime']
         
-        CEDf = df[(df['err_type'].isin([ 'CE', 'PatrolScrubbingUEO']))].reset_index(drop=True)
+        CEDf = df[(df['err_type'].isin([ 'CE', 'PatrolScrubbingUEO'])) & (df['record_datetime'] < firstUER) ].reset_index(drop=True)
         if CEDf.shape[0] == 0:
             q.put([1, datetime.now(), datetime.now()])
             continue
