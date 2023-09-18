@@ -44,8 +44,11 @@ def trainAndTest(time,trainItem):
     dataSetFile = os.path.join(DATA_SET_PATH,"{}{}.csv".format(time,window_appendix))
     df = pd.read_csv(os.path.join(dataSetFile))
 
-
-    with open(os.path.join(TEST_MODEL_PATH,'{}{}.pkl'.format(time,window_appendix)), 'rb') as f:
+    modelFile = os.path.join(TEST_MODEL_PATH,'{}{}.pkl'.format(time,window_appendix))
+    if not os.path.exists(modelFile):
+        modelFile = os.path.join(TEST_MODEL_PATH,'{}{}.pkl'.format(str(time).replace(":","_"),window_appendix))
+    
+    with open(modelFile, 'rb') as f:
         rfc = pickle.load(f)
     dataSetFile = os.path.join(DATA_SET_PATH,"{}{}.csv".format(time,window_appendix))
     df = pd.read_csv(os.path.join(dataSetFile))
